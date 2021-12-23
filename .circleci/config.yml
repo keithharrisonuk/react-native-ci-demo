@@ -4,12 +4,11 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - rn/yarn_install
       - run:
-          command: yarn eslint
+          command: npm eslint
           name: Run ESLint
       - run:
-          command: yarn jest
+          command: npm jest
           name: Jest
   checkout_code:
     executor: rn/linux_js
