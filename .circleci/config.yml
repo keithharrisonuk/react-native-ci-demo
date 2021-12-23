@@ -9,10 +9,7 @@ jobs:
           command: yarn eslint
           name: Run ESLint
       - run:
-          command: yarn flow
-          name: Flow
-      - run:
-          command: yarn jest
+          command: npm jest
           name: Jest
   checkout_code:
     executor: rn/linux_js
