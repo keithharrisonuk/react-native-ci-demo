@@ -18,15 +18,6 @@ jobs:
       - persist_to_workspace:
           paths: .
           root: .
-  fastlane_release:
-    executor: rn/linux_js
-    steps:
-      - attach_workspace:
-          at: .
-      - rn/yarn_install
-      - run:
-          command: bundle exec fastlane ios release
-          name: Run Fastlane
 orbs:
   rn: react-native-community/react-native@6.0.1
 version: 2.1
@@ -41,18 +32,7 @@ workflows:
           build_configuration: Release
           device: iPhone X
           name: build_ios_release
-          project_path: ios/Example.xcodeproj
+          project_path: ios/demo.xcodeproj
           requires:
             - analyse_js
-          scheme: Example
-      - rn/ios_build_and_test:
-          build_configuration: Release
-          detox_configuration: ios.sim.release
-          device: iPhone X
-          project_path: ios/Example.xcodeproj
-          requires:
-            - analyse_js
-          scheme: Example
-      - fastlane_release:
-          requires:
-            - rn/ios_build_and_test
+          scheme: demo
