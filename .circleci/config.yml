@@ -5,8 +5,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          command: npm -version
+          name: Npm version
+      - run:
           command: npm install
-          name: Run ESLint
+          name: Run npm install
       - run:
           command: npm run lint
           name: Run ESLint
