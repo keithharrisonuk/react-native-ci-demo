@@ -5,10 +5,10 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          command: npm eslint
+          command: npm run lint
           name: Run ESLint
       - run:
-          command: npm jest
+          command: npm run test
           name: Jest
   checkout_code:
     executor: rn/linux_js
